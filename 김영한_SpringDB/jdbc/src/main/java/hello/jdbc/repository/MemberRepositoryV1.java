@@ -1,6 +1,5 @@
 package hello.jdbc.repository;
 
-import hello.jdbc.connection.DBConnectionUtil;
 import hello.jdbc.domain.Member;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.jdbc.support.JdbcUtils;
@@ -120,7 +119,6 @@ public class MemberRepositoryV1 {
             JdbcUtils.closeStatement(stmt);
             JdbcUtils.closeConnection(con);
         }
-
 
         private Connection getConnection() throws SQLException {
             Connection con = dataSource.getConnection();
