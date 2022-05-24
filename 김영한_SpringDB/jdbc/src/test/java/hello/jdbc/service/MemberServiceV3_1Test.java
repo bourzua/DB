@@ -33,6 +33,7 @@ class MemberServiceV3_1Test {
     void before() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource(URL, USERNAME, PASSWORD);
         memberRepository = new MemberRepositoryV3(dataSource);
+        // 기술 변경 시 의존관계 주입만 'DataSourceTransactionManager'에서 'JpaTransactionManager'로 변경해주면 된다.
         PlatformTransactionManager transactionManager = new DataSourceTransactionManager(dataSource);
         memberService = new MemberServiceV3_1(transactionManager, memberRepository);
     }
